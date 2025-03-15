@@ -12,9 +12,8 @@ app.use(express.static(path.join(__dirname,'public')));
 
 app.get('/',(req,res)=>{
     fs.readdir(`./files`,(err,files)=>{
-        console.log(files)
-    })
-    res.render("index.ejs");
+        res.render("index.ejs",{files:files});
+    }) 
 })
 
 
