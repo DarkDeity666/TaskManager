@@ -15,6 +15,16 @@ app.get('/',(req,res)=>{
         res.render("index.ejs",{files:files});
     }) 
 })
+app.post('/create',(req,res)=>{
+    fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`,req.body.details,(err)=>{
+        if(err) throw err;
+        else{
+            console.log('File Created');
+            res.redirect('/');
+        }
+        
+    })
+})
 
 
 
