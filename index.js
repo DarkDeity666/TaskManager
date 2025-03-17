@@ -23,6 +23,10 @@ app.get('/files/:filename',(req,res)=>{
     })
 
 })
+
+app.get(`edit/:filename`,(req,res)=>{
+    
+})
 app.post('/create',(req,res)=>{
     fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`,req.body.details,(err)=>{
         if(err) throw err;
@@ -33,9 +37,6 @@ app.post('/create',(req,res)=>{
         
     })
 })
-
-
-
 
 app.listen(3000,()=>{
     console.log('Server is running on port 3000');
